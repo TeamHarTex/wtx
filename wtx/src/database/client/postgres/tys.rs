@@ -387,11 +387,13 @@ mod collections {
     #[inline]
     fn encode(&self, ev: &mut EncodeValue<'_, '_>) -> Result<(), E> {/*
       ev.fbw().extend_from_slice(&1_u32.to_be_bytes())?;
-      ev.fbw().extend_from_slice(&0_u32.to_be_bytes())?;
-      ev.fbw().extend_from_slice(&25_u32.to_be_bytes())?;
-      ev.fbw().extend_from_slice(&self.len().to_be_bytes())?;*/
+      */
 
       std::dbg!(&ev);
+
+      ev.fbw().extend_from_slice(&0_u32.to_be_bytes())?;
+      ev.fbw().extend_from_slice(&25_u32.to_be_bytes())?;
+      ev.fbw().extend_from_slice(&self.len().to_be_bytes())?;
 
       for s in self {
         ev.fbw().extend_from_slice(&s.len().to_be_bytes())?;
